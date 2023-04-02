@@ -18,9 +18,6 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.LineBorder;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-
-import com.mysql.cj.protocol.Resultset;
-
 import javax.swing.JScrollPane;
 import javax.swing.JLabel;
 import javax.swing.JButton;
@@ -858,13 +855,45 @@ public void switchMainPanels(JPanel panel2) {
 		delete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				  // java database connection
+				
+				String url = "jdbc:mysql://db4free.net:3306/result_ms";
+				String userName = "rootuseronline";
+				String passWord = "rootuser123";
+				
+				String delete_name = enterstunm.getText();
+				String delete_reg = enterstureg.getText();
+				
+				
+				try {
+					String query ="select * from rms where regno = '"+delete_reg+"'";
+					Connection con1 = DriverManager.getConnection(url,userName,passWord);
+					Statement st1 = con1.createStatement();
+					ResultSet rs1 = st1.executeQuery(query);
+					rs1.next();
+					
+					if(delete_name.equals(rs1.getString(1))){
+							String query1  = "delete from rms where regno ='"+delete_reg+"'";
+							st1.executeUpdate(query1);
+							JOptionPane.showMessageDialog(frame, "STUDENT DATA DELETED SUCCESSFULLY !!");
+							enterstunm.setText("");
+							enterstureg.setText("");
+					}
+					else {
+						JOptionPane.showMessageDialog(frame, "Data does not match !!");
+					}
+					
+				}catch(SQLException e2) {
+					JOptionPane.showMessageDialog(frame, "Some unknown error occured !!");
+					if(enterstunm.getText().equals("")  || enterstureg.getText().equals("") ) {
+						JOptionPane.showMessageDialog(frame, "Field should not be empty");
+					} 
+					else if(e2.getMessage().equals("Illegal operation on empty result set.")) {
+						JOptionPane.showMessageDialog(frame , "NO DATA FOUND !! FOR THIS DETAILS");
+					}
+				  }
+				
+				}
 		
-				
-					 
-			
-						
-				
-			}
 		});
 		delete.setBorder(new LineBorder(new Color(0, 0, 0)));
 		delete.setBackground(new Color(255, 0, 0));
