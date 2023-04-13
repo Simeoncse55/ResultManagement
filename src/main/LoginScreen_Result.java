@@ -257,6 +257,16 @@ public class LoginScreen_Result {
 		frame.getContentPane().add(lblNewLabel_3_2);
 		
 		textField_1 = new JTextField();
+		textField_1.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				
+				if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					passwordField_1.requestFocus();
+					
+				}
+			}
+		});
 		textField_1.setHorizontalAlignment(SwingConstants.CENTER);
 		textField_1.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));
 		textField_1.setColumns(10);
