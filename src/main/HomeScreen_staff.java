@@ -33,6 +33,8 @@ import javax.swing.JSeparator;
 import javax.swing.JToggleButton;
 import javax.swing.event.AncestorListener;
 import javax.swing.event.AncestorEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 
 
@@ -49,7 +51,7 @@ public class HomeScreen_staff {
 	JPanel ManageAccount_panel;
 	JLayeredPane MainPanel;
 	JPanel Internal_Result;
-	JButton btn_AddStudents;
+public	JButton btn_AddStudents;
 	JButton btn_AllStudents;
 	JButton btnUpdateStudent;
 	JButton btnDeleteStudent;
@@ -149,7 +151,19 @@ public class HomeScreen_staff {
 	public JTextField r3_mrk5;
 	public JTextField r3_mrk6;
 	
-	
+	//inter one preview 
+	public  JLabel sc1;
+	public  JLabel mr1;
+	public  JLabel sc2;
+	public  JLabel mr2;
+	public  JLabel sc3;
+	public  JLabel mr3;
+	public  JLabel sc4;
+	public  JLabel mr4;
+	public  JLabel sc5;
+	public  JLabel mr5;
+	public  JLabel sc6;
+	public  JLabel mr6;
 	
 			
 	
@@ -451,6 +465,18 @@ public void switchMainPanels(JPanel panel2) {
 		lblNewLabel_2.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		
 		stu_name = new JTextField();
+		stu_name.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				
+		  if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+			  regno.requestFocus();
+			  
+		  }
+				
+				
+			}
+		});
 		stu_name.setBounds(53, 95, 234, 25);
 		stu_name.setHorizontalAlignment(SwingConstants.CENTER);
 		stu_name.setBackground(new Color(250, 235, 215));
@@ -464,6 +490,17 @@ public void switchMainPanels(JPanel panel2) {
 		lblNewLabel_2_1.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		
 		branch = new JTextField();
+		branch.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				
+
+				  if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					  course.requestFocus();
+				  }
+				
+			}
+		});
 		branch.setBounds(53, 153, 234, 25);
 		branch.setHorizontalAlignment(SwingConstants.CENTER);
 		branch.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));
@@ -477,6 +514,17 @@ public void switchMainPanels(JPanel panel2) {
 		lblNewLabel_2_2.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		
 		regno = new JTextField();
+		regno.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				
+				
+				  if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					  depart.requestFocus();
+				  }
+				
+			}
+		});
 		regno.setBounds(358, 95, 234, 25);
 		regno.setHorizontalAlignment(SwingConstants.CENTER);
 		regno.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));
@@ -490,6 +538,17 @@ public void switchMainPanels(JPanel panel2) {
 		lblNewLabel_2_3.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		
 		course = new JTextField();
+		course.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				
+
+				  if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					  year.requestFocus();
+				  }
+				
+			}
+		});
 		course.setBounds(358, 153, 234, 25);
 		course.setHorizontalAlignment(SwingConstants.CENTER);
 		course.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));
@@ -503,6 +562,17 @@ public void switchMainPanels(JPanel panel2) {
 		lblNewLabel_2_4.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		
 		depart = new JTextField();
+		depart.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				
+				
+				  if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					  branch.requestFocus();
+				  }
+				
+			}
+		});
 		depart.setBounds(658, 95, 234, 25);
 		depart.setHorizontalAlignment(SwingConstants.CENTER);
 		depart.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));
@@ -516,6 +586,16 @@ public void switchMainPanels(JPanel panel2) {
 		lblNewLabel_2_5.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		
 		year = new JTextField();
+		year.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				
+				 if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					  mobnum.requestFocus();
+					  
+				  }
+			}
+		});
 		year.setBounds(658, 153, 234, 25);
 		year.setHorizontalAlignment(SwingConstants.CENTER);
 		year.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));
@@ -538,6 +618,17 @@ public void switchMainPanels(JPanel panel2) {
 		lblNewLabel_2_7.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		
 		mobnum = new JTextField();
+		mobnum.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				
+				
+				
+				if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					gender.requestFocus();
+				}
+			}
+		});
 		mobnum.setBounds(53, 273, 234, 25);
 		mobnum.setHorizontalAlignment(SwingConstants.CENTER);
 		mobnum.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));
@@ -551,6 +642,16 @@ public void switchMainPanels(JPanel panel2) {
 		lblNewLabel_2_1_1.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		
 		city = new JTextField();
+		city.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				
+				 if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					  relg.requestFocus();
+					  
+				  }
+			}
+		});
 		city.setBounds(53, 331, 234, 25);
 		city.setHorizontalAlignment(SwingConstants.CENTER);
 		city.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));
@@ -564,6 +665,16 @@ public void switchMainPanels(JPanel panel2) {
 		lblNewLabel_2_2_1.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		
 		gender = new JTextField();
+		gender.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				
+				 if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					  dob.requestFocus();
+					  
+				  }
+			}
+		});
 		gender.setBounds(358, 273, 234, 25);
 		gender.setHorizontalAlignment(SwingConstants.CENTER);
 		gender.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));
@@ -577,6 +688,16 @@ public void switchMainPanels(JPanel panel2) {
 		lblNewLabel_2_3_1.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		
 		relg = new JTextField();
+		relg.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				
+				 if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					  state.requestFocus();
+					  
+				  }
+			}
+		});
 		relg.setBounds(358, 331, 234, 25);
 		relg.setHorizontalAlignment(SwingConstants.CENTER);
 		relg.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));
@@ -590,6 +711,16 @@ public void switchMainPanels(JPanel panel2) {
 		lblNewLabel_2_4_1.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		
 		dob = new JTextField();
+		dob.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				
+				 if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					  city.requestFocus();
+					  
+				  }
+			}
+		});
 		dob.setBounds(658, 273, 234, 25);
 		dob.setHorizontalAlignment(SwingConstants.CENTER);
 		dob.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));
@@ -603,6 +734,16 @@ public void switchMainPanels(JPanel panel2) {
 		lblNewLabel_2_5_1.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		
 		state = new JTextField();
+		state.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				
+				 if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					  fathernm.requestFocus();
+					  
+				  }
+			}
+		});
 		state.setBounds(658, 331, 234, 25);
 		state.setHorizontalAlignment(SwingConstants.CENTER);
 		state.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));
@@ -621,6 +762,16 @@ public void switchMainPanels(JPanel panel2) {
 		lblNewLabel_2_8.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		
 		fathernm = new JTextField();
+		fathernm.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				
+				 if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					  mothernm.requestFocus();
+					  
+				  }
+			}
+		});
 		fathernm.setBounds(53, 451, 234, 25);
 		fathernm.setHorizontalAlignment(SwingConstants.CENTER);
 		fathernm.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));
@@ -634,6 +785,15 @@ public void switchMainPanels(JPanel panel2) {
 		lblNewLabel_2_1_2.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		
 		mothernm = new JTextField();
+		mothernm.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				 if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					  fathermob.requestFocus();
+					  
+				  }
+			}
+		});
 		mothernm.setBounds(53, 509, 234, 25);
 		mothernm.setHorizontalAlignment(SwingConstants.CENTER);
 		mothernm.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));
@@ -647,6 +807,15 @@ public void switchMainPanels(JPanel panel2) {
 		lblNewLabel_2_2_2.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		
 		fathermob = new JTextField();
+		fathermob.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				 if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					  mothermob.requestFocus();
+					  
+				  }
+			}
+		});
 		fathermob.setBounds(358, 451, 234, 25);
 		fathermob.setHorizontalAlignment(SwingConstants.CENTER);
 		fathermob.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));
@@ -660,6 +829,15 @@ public void switchMainPanels(JPanel panel2) {
 		lblNewLabel_2_3_2.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		
 		mothermob = new JTextField();
+		mothermob.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				 if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					  foccp.requestFocus();
+					  
+				  }
+			}
+		});
 		mothermob.setBounds(358, 509, 234, 25);
 		mothermob.setHorizontalAlignment(SwingConstants.CENTER);
 		mothermob.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));
@@ -673,6 +851,16 @@ public void switchMainPanels(JPanel panel2) {
 		lblNewLabel_2_4_2.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		
 		foccp = new JTextField();
+		foccp.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				
+				 if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					  moccp.requestFocus();
+					  
+				  }
+			}
+		});
 		foccp.setBounds(658, 451, 234, 25);
 		foccp.setHorizontalAlignment(SwingConstants.CENTER);
 		foccp.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));
@@ -686,6 +874,13 @@ public void switchMainPanels(JPanel panel2) {
 		lblNewLabel_2_5_2.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		
 		moccp = new JTextField();
+		moccp.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				
+				 
+			}
+		});
 		moccp.setBounds(658, 509, 234, 25);
 		moccp.setHorizontalAlignment(SwingConstants.CENTER);
 		moccp.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));
@@ -786,24 +981,26 @@ public void switchMainPanels(JPanel panel2) {
 		JButton clr = new JButton("CLEAR ALL");
 		clr.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				 stu_name.setText(null);
-				 regno.setText(null);
-				 depart.setText(null);
-			     branch.setText(null);
-				 course.setText(null);
-				 year.setText(null);
-				 mobnum.setText(null);
-				 fathernm.setText(null);
-				 mothernm.setText(null);
-				 fathermob.setText(null);
-				 mothermob.setText(null);
-				 foccp.setText(null);
-				 moccp.setText(null);
-			     gender.setText(null);
-			     dob.setText(null);
-			     city.setText(null);
-			     relg.setText(null);
-		         state.setText(null);
+
+				
+				stu_name.setText("");
+				regno.setText("");
+				depart.setText("");
+				branch.setText("");
+				course.setText("");
+				year.setText("");
+				mobnum.setText("");
+				gender.setText("");
+				dob.setText("");
+				city.setText("");
+				relg.setText("");
+				state.setText("");
+				fathernm.setText("");
+				mothernm.setText("");
+				fathermob.setText("");
+				mothermob.setText("");
+				foccp.setText("");
+				moccp.setText("");
 			}
 		});
 		clr.setBounds(358, 552, 234, 40);
@@ -873,6 +1070,16 @@ public void switchMainPanels(JPanel panel2) {
 		lblNewLabel_2_9_1_1.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		
 		enterstunm = new JTextField();
+		enterstunm.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+			
+				if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					enterstureg.requestFocus();
+				}
+				
+			}
+		});
 		enterstunm.setHorizontalAlignment(SwingConstants.CENTER);
 		enterstunm.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));
 		enterstunm.setColumns(10);
@@ -1261,7 +1468,7 @@ public void switchMainPanels(JPanel panel2) {
 		JButton btnNewButton_1_1 = new JButton("CLEAR ALL");
 		btnNewButton_1_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				  upstu.setText("");
+				    upstu.setText("");
 	                upreg.setText("");
 	                updptr.setText("");
 	                upbranch.setText("");
@@ -1700,9 +1907,13 @@ public void switchMainPanels(JPanel panel2) {
 		JButton btnNewButton_3 = new JButton("Get Details");
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String url = "jdbc:mysql://localhost:3306/result_ms";
-				String userName = "root";
-				String passWord = "SIM@ss55simeon";
+
+				
+
+				String url = "jdbc:mysql://db4free.net:3306/result_ms";
+				String userName = "rootuseronline";
+				String passWord = "rootuser123";
+				
 				
 				// query 
 				String query="select *from rms where regno='"+r_reg.getText()+"'";
@@ -1733,6 +1944,16 @@ public void switchMainPanels(JPanel panel2) {
 		lblNewLabel_2_10_1_4.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		
 		subc1 = new JTextField();
+		subc1.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				
+				 if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					  mrk1.requestFocus();
+					  
+				  }
+			}
+		});
 		subc1.setHorizontalAlignment(SwingConstants.CENTER);
 		subc1.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));
 		subc1.setColumns(10);
@@ -1744,6 +1965,15 @@ public void switchMainPanels(JPanel panel2) {
 		lblNewLabel_2_10_1_4_1.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		
 		mrk1 = new JTextField();
+		mrk1.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				 if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					  subc2.requestFocus();
+					  
+				  }
+			}
+		});
 		mrk1.setHorizontalAlignment(SwingConstants.CENTER);
 		mrk1.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));
 		mrk1.setColumns(10);
@@ -1755,6 +1985,16 @@ public void switchMainPanels(JPanel panel2) {
 		lblNewLabel_2_10_1_4_2.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		
 		subc2 = new JTextField();
+		subc2.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				
+				 if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					  mrk2.requestFocus();
+					  
+				  }
+			}
+		});
 		subc2.setText(" ");
 		subc2.setHorizontalAlignment(SwingConstants.CENTER);
 		subc2.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));
@@ -1767,6 +2007,17 @@ public void switchMainPanels(JPanel panel2) {
 		lblNewLabel_2_10_1_4_1_1.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		
 		mrk2 = new JTextField();
+		mrk2.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+
+				 if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					  subc3.requestFocus();
+					  
+				  }
+				
+			}
+		});
 		mrk2.setHorizontalAlignment(SwingConstants.CENTER);
 		mrk2.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));
 		mrk2.setColumns(10);
@@ -1778,6 +2029,17 @@ public void switchMainPanels(JPanel panel2) {
 		lblNewLabel_2_10_1_4_3.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		
 		subc3 = new JTextField();
+		subc3.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				
+
+				 if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					  mrk3.requestFocus();
+					  
+				  }
+			}
+		});
 		subc3.setHorizontalAlignment(SwingConstants.CENTER);
 		subc3.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));
 		subc3.setColumns(10);
@@ -1789,6 +2051,17 @@ public void switchMainPanels(JPanel panel2) {
 		lblNewLabel_2_10_1_4_1_2.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		
 		mrk3 = new JTextField();
+		mrk3.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				
+
+				 if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					  subc4.requestFocus();
+					  
+				  }
+			}
+		});
 		mrk3.setHorizontalAlignment(SwingConstants.CENTER);
 		mrk3.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));
 		mrk3.setColumns(10);
@@ -1800,6 +2073,17 @@ public void switchMainPanels(JPanel panel2) {
 		lblNewLabel_2_10_1_4_4.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		
 		subc4 = new JTextField();
+		subc4.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				
+
+				 if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					  mrk4.requestFocus();
+					  
+				  }
+			}
+		});
 		subc4.setHorizontalAlignment(SwingConstants.CENTER);
 		subc4.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));
 		subc4.setColumns(10);
@@ -1811,6 +2095,17 @@ public void switchMainPanels(JPanel panel2) {
 		lblNewLabel_2_10_1_4_1_3.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		
 		mrk4 = new JTextField();
+		mrk4.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				
+
+				 if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					  subc5.requestFocus();
+					  
+				  }
+			}
+		});
 		mrk4.setHorizontalAlignment(SwingConstants.CENTER);
 		mrk4.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));
 		mrk4.setColumns(10);
@@ -1822,6 +2117,17 @@ public void switchMainPanels(JPanel panel2) {
 		lblNewLabel_2_10_1_4_5.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		
 		subc5 = new JTextField();
+		subc5.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				
+
+				 if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					  mrk5.requestFocus();
+					  
+				  }
+			}
+		});
 		subc5.setHorizontalAlignment(SwingConstants.CENTER);
 		subc5.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));
 		subc5.setColumns(10);
@@ -1833,6 +2139,17 @@ public void switchMainPanels(JPanel panel2) {
 		lblNewLabel_2_10_1_4_1_4.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		
 		mrk5 = new JTextField();
+		mrk5.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				
+
+				 if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					  subc6.requestFocus();
+					  
+				  }
+			}
+		});
 		mrk5.setHorizontalAlignment(SwingConstants.CENTER);
 		mrk5.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));
 		mrk5.setColumns(10);
@@ -1844,6 +2161,17 @@ public void switchMainPanels(JPanel panel2) {
 		lblNewLabel_2_10_1_4_6.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		
 		subc6 = new JTextField();
+		subc6.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				
+
+				 if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					  mrk6.requestFocus();
+					  
+				  }
+			}
+		});
 		subc6.setHorizontalAlignment(SwingConstants.CENTER);
 		subc6.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));
 		subc6.setColumns(10);
@@ -1873,42 +2201,109 @@ public void switchMainPanels(JPanel panel2) {
 		tglbtnNewToggleButton.setBorder(new LineBorder(new Color(255, 128, 0)));
 		tglbtnNewToggleButton.setFont(new Font("Segoe UI Variable", Font.BOLD, 13));
 		
-		JToggleButton tglbtnNewToggleButton_1 = new JToggleButton("SEM 1");
+		JToggleButton tglbtnNewToggleButton_1 = new JToggleButton("SEM 2");
 		tglbtnNewToggleButton_1.setBackground(new Color(255, 255, 255));
 		tglbtnNewToggleButton_1.setFont(new Font("Segoe UI Variable", Font.BOLD, 13));
 		tglbtnNewToggleButton_1.setBorder(new LineBorder(new Color(255, 128, 0)));
 		
-		JToggleButton tglbtnNewToggleButton_2 = new JToggleButton("SEM 1");
+		JToggleButton tglbtnNewToggleButton_2 = new JToggleButton("SEM 3");
 		tglbtnNewToggleButton_2.setBackground(new Color(255, 255, 255));
 		tglbtnNewToggleButton_2.setFont(new Font("Segoe UI Variable", Font.BOLD, 13));
 		tglbtnNewToggleButton_2.setBorder(new LineBorder(new Color(255, 128, 0)));
 		
-		JToggleButton tglbtnNewToggleButton_3 = new JToggleButton("SEM 1");
+		JToggleButton tglbtnNewToggleButton_3 = new JToggleButton("SEM 4");
 		tglbtnNewToggleButton_3.setBackground(new Color(255, 255, 255));
 		tglbtnNewToggleButton_3.setFont(new Font("Segoe UI Variable", Font.BOLD, 13));
 		tglbtnNewToggleButton_3.setBorder(new LineBorder(new Color(255, 128, 0)));
 		
-		JToggleButton tglbtnNewToggleButton_3_1 = new JToggleButton("SEM 1");
+		JToggleButton tglbtnNewToggleButton_3_1 = new JToggleButton("SEM 8");
 		tglbtnNewToggleButton_3_1.setBackground(new Color(255, 255, 255));
 		tglbtnNewToggleButton_3_1.setFont(new Font("Segoe UI Variable", Font.BOLD, 13));
 		tglbtnNewToggleButton_3_1.setBorder(new LineBorder(new Color(255, 128, 0)));
 		
-		JToggleButton tglbtnNewToggleButton_4 = new JToggleButton("SEM 1");
+		JToggleButton tglbtnNewToggleButton_4 = new JToggleButton("SEM 5");
 		tglbtnNewToggleButton_4.setBackground(new Color(255, 255, 255));
 		tglbtnNewToggleButton_4.setFont(new Font("Segoe UI Variable", Font.BOLD, 13));
 		tglbtnNewToggleButton_4.setBorder(new LineBorder(new Color(255, 128, 0)));
 		
-		JToggleButton tglbtnNewToggleButton_1_1 = new JToggleButton("SEM 1");
+		JToggleButton tglbtnNewToggleButton_1_1 = new JToggleButton("SEM 6");
 		tglbtnNewToggleButton_1_1.setBackground(new Color(255, 255, 255));
 		tglbtnNewToggleButton_1_1.setFont(new Font("Segoe UI Variable", Font.BOLD, 13));
 		tglbtnNewToggleButton_1_1.setBorder(new LineBorder(new Color(255, 128, 0)));
 		
-		JToggleButton tglbtnNewToggleButton_2_1 = new JToggleButton("SEM 1");
+		JToggleButton tglbtnNewToggleButton_2_1 = new JToggleButton("SEM 7");
 		tglbtnNewToggleButton_2_1.setBackground(new Color(255, 255, 255));
 		tglbtnNewToggleButton_2_1.setFont(new Font("Segoe UI Variable", Font.BOLD, 13));
 		tglbtnNewToggleButton_2_1.setBorder(new LineBorder(new Color(255, 128, 0)));
 		
 		JButton btnNewButton_4 = new JButton("UPLOAD RESULT");
+		btnNewButton_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+			
+				//database connection internal one marks
+
+				String url = "jdbc:mysql://db4free.net:3306/result_ms";
+				String userName = "rootuseronline";
+				String passWord = "rootuser123";
+				
+				
+				String query ="insert into internalone value(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+				try {
+					Connection con = DriverManager.getConnection(url,userName,passWord);
+					
+					String sb1 = subc1.getText();
+					String mr1 = mrk1.getText();
+					String sb2 = subc2.getText();
+					String mr2 = mrk2.getText();
+					
+					String sb3 = subc3.getText();
+					String mr3 = mrk3.getText();
+					String sb4 = subc4.getText();
+					String mr4 = mrk4.getText();
+					
+					String sb5 = subc5.getText();
+					String mr5 = mrk5.getText();
+					String sb6 = subc6.getText();
+					String mr6 = mrk6.getText();
+					
+					String regno = r_reg.getText();
+					
+					PreparedStatement st = con.prepareStatement(query);
+					
+					st.setString(1, sb1);
+					st.setString(2, mr1);
+					
+					st.setString(3, sb2);
+					st.setString(4, mr2);
+					
+					st.setString(5, sb3);
+					st.setString(6, mr3);
+					
+					st.setString(7, sb4);
+					st.setString(8, mr4);
+					
+					st.setString(9, sb5);
+					st.setString(10, mr5);
+					
+					st.setString(11, sb6);
+					st.setString(12,mr6);
+					
+					st.setString(13, regno);
+					
+					st.executeUpdate();				
+					
+					
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+				
+				
+			}
+		});
 		btnNewButton_4.setBorder(new LineBorder(new Color(255, 128, 0)));
 		btnNewButton_4.setBackground(new Color(255, 255, 255));
 		btnNewButton_4.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
@@ -1924,6 +2319,38 @@ public void switchMainPanels(JPanel panel2) {
 		lblNewLabel_3.setBackground(new Color(255, 128, 0));
 		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_3.setFont(new Font("Arial Black", Font.BOLD, 18));
+		
+		JButton prev = new JButton("Preview");
+		prev.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+		
+			subc1.getText();
+		// 	sc1.setText(subc1);
+			mrk1.getText();
+			
+			subc2.getText();
+			mrk2.getText();
+			
+			subc3.getText();
+			mrk3.getText();
+			
+			subc4.getText();
+			mrk4.getText();
+			
+			subc5.getText();
+			mrk5.getText();
+			
+			subc6.getText();
+			mrk6.getText();
+			
+			sc1.setText(subc1.getText());
+			
+			
+			}
+		});
+		prev.setFont(new Font("Tahoma", Font.BOLD, 13));
+		prev.setBackground(new Color(255, 128, 0));
+		prev.setBorder(null);
 		GroupLayout gl_Internals_1 = new GroupLayout(Internals_1);
 		gl_Internals_1.setHorizontalGroup(
 			gl_Internals_1.createParallelGroup(Alignment.LEADING)
@@ -1961,7 +2388,6 @@ public void switchMainPanels(JPanel panel2) {
 								.addComponent(r_year, GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE))
 							.addGap(357))
 						.addComponent(separator_3_1, GroupLayout.DEFAULT_SIZE, 863, Short.MAX_VALUE)
-						.addComponent(lblNewLabel_2_10_1_4_7, GroupLayout.DEFAULT_SIZE, 863, Short.MAX_VALUE)
 						.addGroup(gl_Internals_1.createSequentialGroup()
 							.addGroup(gl_Internals_1.createParallelGroup(Alignment.LEADING)
 								.addComponent(subc1, GroupLayout.PREFERRED_SIZE, 119, GroupLayout.PREFERRED_SIZE)
@@ -1988,19 +2414,23 @@ public void switchMainPanels(JPanel panel2) {
 									.addGap(1)
 									.addComponent(tglbtnNewToggleButton_1, GroupLayout.PREFERRED_SIZE, 119, GroupLayout.PREFERRED_SIZE))
 								.addComponent(tglbtnNewToggleButton_1_1, GroupLayout.PREFERRED_SIZE, 119, GroupLayout.PREFERRED_SIZE))
-							.addGap(14)
 							.addGroup(gl_Internals_1.createParallelGroup(Alignment.LEADING)
-								.addComponent(subc4, GroupLayout.PREFERRED_SIZE, 119, GroupLayout.PREFERRED_SIZE)
-								.addComponent(lblNewLabel_2_10_1_4_4, GroupLayout.PREFERRED_SIZE, 119, GroupLayout.PREFERRED_SIZE)
-								.addComponent(subc5, GroupLayout.PREFERRED_SIZE, 119, GroupLayout.PREFERRED_SIZE)
-								.addComponent(lblNewLabel_2_10_1_4_5, GroupLayout.PREFERRED_SIZE, 119, GroupLayout.PREFERRED_SIZE)
-								.addComponent(subc6, GroupLayout.PREFERRED_SIZE, 119, GroupLayout.PREFERRED_SIZE)
-								.addComponent(lblNewLabel_2_10_1_4_6, GroupLayout.PREFERRED_SIZE, 119, GroupLayout.PREFERRED_SIZE)
 								.addGroup(gl_Internals_1.createSequentialGroup()
-									.addGap(1)
-									.addComponent(tglbtnNewToggleButton_2, GroupLayout.PREFERRED_SIZE, 119, GroupLayout.PREFERRED_SIZE))
-								.addComponent(tglbtnNewToggleButton_2_1, GroupLayout.PREFERRED_SIZE, 119, GroupLayout.PREFERRED_SIZE))
-							.addGap(7)
+									.addGap(14)
+									.addGroup(gl_Internals_1.createParallelGroup(Alignment.LEADING)
+										.addComponent(subc4, GroupLayout.PREFERRED_SIZE, 119, GroupLayout.PREFERRED_SIZE)
+										.addComponent(lblNewLabel_2_10_1_4_4, GroupLayout.PREFERRED_SIZE, 119, GroupLayout.PREFERRED_SIZE)
+										.addComponent(subc5, GroupLayout.PREFERRED_SIZE, 119, GroupLayout.PREFERRED_SIZE)
+										.addComponent(lblNewLabel_2_10_1_4_5, GroupLayout.PREFERRED_SIZE, 119, GroupLayout.PREFERRED_SIZE)
+										.addComponent(subc6, GroupLayout.PREFERRED_SIZE, 119, GroupLayout.PREFERRED_SIZE)
+										.addComponent(lblNewLabel_2_10_1_4_6, GroupLayout.PREFERRED_SIZE, 119, GroupLayout.PREFERRED_SIZE)
+										.addGroup(gl_Internals_1.createSequentialGroup()
+											.addGap(1)
+											.addComponent(tglbtnNewToggleButton_2, GroupLayout.PREFERRED_SIZE, 119, GroupLayout.PREFERRED_SIZE))))
+								.addGroup(gl_Internals_1.createSequentialGroup()
+									.addGap(18)
+									.addComponent(tglbtnNewToggleButton_2_1, GroupLayout.PREFERRED_SIZE, 119, GroupLayout.PREFERRED_SIZE)))
+							.addPreferredGap(ComponentPlacement.RELATED)
 							.addGroup(gl_Internals_1.createParallelGroup(Alignment.LEADING)
 								.addComponent(lblNewLabel_2_10_1_4_1_3, GroupLayout.PREFERRED_SIZE, 119, GroupLayout.PREFERRED_SIZE)
 								.addComponent(mrk4, GroupLayout.PREFERRED_SIZE, 119, GroupLayout.PREFERRED_SIZE)
@@ -2016,7 +2446,11 @@ public void switchMainPanels(JPanel panel2) {
 									.addGap(1)))
 							.addGap(28)
 							.addComponent(ResultPreview_Panel, GroupLayout.DEFAULT_SIZE, 327, Short.MAX_VALUE))
-						.addComponent(btnNewButton_4, GroupLayout.DEFAULT_SIZE, 863, Short.MAX_VALUE))
+						.addComponent(btnNewButton_4, GroupLayout.DEFAULT_SIZE, 863, Short.MAX_VALUE)
+						.addGroup(gl_Internals_1.createSequentialGroup()
+							.addComponent(lblNewLabel_2_10_1_4_7, GroupLayout.PREFERRED_SIZE, 600, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.RELATED, 152, Short.MAX_VALUE)
+							.addComponent(prev, GroupLayout.PREFERRED_SIZE, 111, GroupLayout.PREFERRED_SIZE)))
 					.addGap(42))
 		);
 		gl_Internals_1.setVerticalGroup(
@@ -2026,8 +2460,8 @@ public void switchMainPanels(JPanel panel2) {
 					.addGroup(gl_Internals_1.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_Internals_1.createSequentialGroup()
 							.addGap(138)
-							.addComponent(lblNewLabel_2_10_1_2_1, GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
-							.addGap(429))
+							.addComponent(lblNewLabel_2_10_1_2_1, GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+							.addGap(50))
 						.addGroup(gl_Internals_1.createSequentialGroup()
 							.addGroup(gl_Internals_1.createParallelGroup(Alignment.LEADING)
 								.addGroup(gl_Internals_1.createSequentialGroup()
@@ -2064,115 +2498,118 @@ public void switchMainPanels(JPanel panel2) {
 									.addGap(23)
 									.addComponent(r_year, GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)))
 							.addGap(20)
-							.addComponent(separator_3_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-							.addGap(7)
-							.addComponent(lblNewLabel_2_10_1_4_7, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addGroup(gl_Internals_1.createParallelGroup(Alignment.TRAILING)
+							.addComponent(separator_3_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(gl_Internals_1.createParallelGroup(Alignment.TRAILING)
+						.addComponent(prev, GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+						.addComponent(lblNewLabel_2_10_1_4_7, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(gl_Internals_1.createParallelGroup(Alignment.TRAILING)
+						.addGroup(gl_Internals_1.createSequentialGroup()
+							.addGroup(gl_Internals_1.createParallelGroup(Alignment.LEADING)
 								.addGroup(gl_Internals_1.createSequentialGroup()
 									.addGroup(gl_Internals_1.createParallelGroup(Alignment.LEADING)
 										.addGroup(gl_Internals_1.createSequentialGroup()
-											.addGroup(gl_Internals_1.createParallelGroup(Alignment.LEADING)
-												.addGroup(gl_Internals_1.createSequentialGroup()
-													.addGap(23)
-													.addComponent(subc1, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE))
-												.addComponent(lblNewLabel_2_10_1_4, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE))
-											.addGap(10)
-											.addGroup(gl_Internals_1.createParallelGroup(Alignment.LEADING)
-												.addGroup(gl_Internals_1.createSequentialGroup()
-													.addGap(23)
-													.addComponent(subc2, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE))
-												.addComponent(lblNewLabel_2_10_1_4_2, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE))
-											.addGap(10)
-											.addGroup(gl_Internals_1.createParallelGroup(Alignment.LEADING)
-												.addComponent(lblNewLabel_2_10_1_4_3, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
-												.addGroup(gl_Internals_1.createSequentialGroup()
-													.addGap(23)
-													.addComponent(subc3, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)))
-											.addGap(22)
-											.addComponent(tglbtnNewToggleButton, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
-											.addGap(10)
-											.addComponent(tglbtnNewToggleButton_4, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
+											.addGap(23)
+											.addComponent(subc1, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE))
+										.addComponent(lblNewLabel_2_10_1_4, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE))
+									.addGap(10)
+									.addGroup(gl_Internals_1.createParallelGroup(Alignment.LEADING)
 										.addGroup(gl_Internals_1.createSequentialGroup()
-											.addGroup(gl_Internals_1.createParallelGroup(Alignment.LEADING)
-												.addComponent(lblNewLabel_2_10_1_4_1, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
-												.addGroup(gl_Internals_1.createSequentialGroup()
-													.addGap(23)
-													.addComponent(mrk1, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)))
-											.addGap(10)
-											.addGroup(gl_Internals_1.createParallelGroup(Alignment.LEADING)
-												.addComponent(lblNewLabel_2_10_1_4_1_1, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
-												.addGroup(gl_Internals_1.createSequentialGroup()
-													.addGap(23)
-													.addComponent(mrk2, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)))
-											.addGap(10)
-											.addGroup(gl_Internals_1.createParallelGroup(Alignment.LEADING)
-												.addGroup(gl_Internals_1.createSequentialGroup()
-													.addGap(23)
-													.addComponent(mrk3, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE))
-												.addComponent(lblNewLabel_2_10_1_4_1_2, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE))
-											.addGap(22)
-											.addComponent(tglbtnNewToggleButton_1, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
-											.addGap(10)
-											.addComponent(tglbtnNewToggleButton_1_1, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
+											.addGap(23)
+											.addComponent(subc2, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE))
+										.addComponent(lblNewLabel_2_10_1_4_2, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE))
+									.addGap(10)
+									.addGroup(gl_Internals_1.createParallelGroup(Alignment.LEADING)
+										.addComponent(lblNewLabel_2_10_1_4_3, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
 										.addGroup(gl_Internals_1.createSequentialGroup()
-											.addGroup(gl_Internals_1.createParallelGroup(Alignment.LEADING)
-												.addGroup(gl_Internals_1.createSequentialGroup()
-													.addGap(23)
-													.addComponent(subc4, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE))
-												.addComponent(lblNewLabel_2_10_1_4_4, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE))
-											.addGap(10)
-											.addGroup(gl_Internals_1.createParallelGroup(Alignment.LEADING)
-												.addGroup(gl_Internals_1.createSequentialGroup()
-													.addGap(23)
-													.addComponent(subc5, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE))
-												.addComponent(lblNewLabel_2_10_1_4_5, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE))
-											.addGap(10)
-											.addGroup(gl_Internals_1.createParallelGroup(Alignment.LEADING)
-												.addGroup(gl_Internals_1.createSequentialGroup()
-													.addGap(23)
-													.addComponent(subc6, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE))
-												.addComponent(lblNewLabel_2_10_1_4_6, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE))
-											.addGap(22)
-											.addComponent(tglbtnNewToggleButton_2, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
-											.addGap(10)
-											.addComponent(tglbtnNewToggleButton_2_1, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
-										.addGroup(gl_Internals_1.createSequentialGroup()
-											.addGroup(gl_Internals_1.createParallelGroup(Alignment.LEADING)
-												.addComponent(lblNewLabel_2_10_1_4_1_3, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
-												.addGroup(gl_Internals_1.createSequentialGroup()
-													.addGap(23)
-													.addComponent(mrk4, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)))
-											.addGap(10)
-											.addGroup(gl_Internals_1.createParallelGroup(Alignment.LEADING)
-												.addComponent(lblNewLabel_2_10_1_4_1_4, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
-												.addGroup(gl_Internals_1.createSequentialGroup()
-													.addGap(23)
-													.addComponent(mrk5, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)))
-											.addGap(10)
-											.addGroup(gl_Internals_1.createParallelGroup(Alignment.LEADING)
-												.addComponent(lblNewLabel_2_10_1_4_1_5, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
-												.addGroup(gl_Internals_1.createSequentialGroup()
-													.addGap(23)
-													.addComponent(mrk6, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)))
-											.addGap(22)
-											.addComponent(tglbtnNewToggleButton_3, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
-											.addGap(10)
-											.addComponent(tglbtnNewToggleButton_3_1, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)))
-									.addGap(14))
+											.addGap(23)
+											.addComponent(subc3, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)))
+									.addGap(22)
+									.addComponent(tglbtnNewToggleButton, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
+									.addGap(10)
+									.addComponent(tglbtnNewToggleButton_4, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
 								.addGroup(gl_Internals_1.createSequentialGroup()
-									.addComponent(ResultPreview_Panel, GroupLayout.PREFERRED_SIZE, 276, GroupLayout.PREFERRED_SIZE)
-									.addPreferredGap(ComponentPlacement.RELATED)))
-							.addComponent(btnNewButton_4, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE)
-							.addGap(19))))
+									.addGroup(gl_Internals_1.createParallelGroup(Alignment.LEADING)
+										.addComponent(lblNewLabel_2_10_1_4_1, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
+										.addGroup(gl_Internals_1.createSequentialGroup()
+											.addGap(23)
+											.addComponent(mrk1, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)))
+									.addGap(10)
+									.addGroup(gl_Internals_1.createParallelGroup(Alignment.LEADING)
+										.addComponent(lblNewLabel_2_10_1_4_1_1, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
+										.addGroup(gl_Internals_1.createSequentialGroup()
+											.addGap(23)
+											.addComponent(mrk2, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)))
+									.addGap(10)
+									.addGroup(gl_Internals_1.createParallelGroup(Alignment.LEADING)
+										.addGroup(gl_Internals_1.createSequentialGroup()
+											.addGap(23)
+											.addComponent(mrk3, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE))
+										.addComponent(lblNewLabel_2_10_1_4_1_2, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE))
+									.addGap(22)
+									.addComponent(tglbtnNewToggleButton_1, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
+									.addGap(10)
+									.addComponent(tglbtnNewToggleButton_1_1, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
+								.addGroup(gl_Internals_1.createSequentialGroup()
+									.addGroup(gl_Internals_1.createParallelGroup(Alignment.LEADING)
+										.addGroup(gl_Internals_1.createSequentialGroup()
+											.addGap(23)
+											.addComponent(subc4, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE))
+										.addComponent(lblNewLabel_2_10_1_4_4, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE))
+									.addGap(10)
+									.addGroup(gl_Internals_1.createParallelGroup(Alignment.LEADING)
+										.addGroup(gl_Internals_1.createSequentialGroup()
+											.addGap(23)
+											.addComponent(subc5, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE))
+										.addComponent(lblNewLabel_2_10_1_4_5, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE))
+									.addGap(10)
+									.addGroup(gl_Internals_1.createParallelGroup(Alignment.LEADING)
+										.addGroup(gl_Internals_1.createSequentialGroup()
+											.addGap(23)
+											.addComponent(subc6, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE))
+										.addComponent(lblNewLabel_2_10_1_4_6, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE))
+									.addGap(22)
+									.addComponent(tglbtnNewToggleButton_2, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
+								.addGroup(gl_Internals_1.createSequentialGroup()
+									.addGroup(gl_Internals_1.createParallelGroup(Alignment.LEADING)
+										.addComponent(lblNewLabel_2_10_1_4_1_3, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
+										.addGroup(gl_Internals_1.createSequentialGroup()
+											.addGap(23)
+											.addComponent(mrk4, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)))
+									.addGap(10)
+									.addGroup(gl_Internals_1.createParallelGroup(Alignment.LEADING)
+										.addComponent(lblNewLabel_2_10_1_4_1_4, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
+										.addGroup(gl_Internals_1.createSequentialGroup()
+											.addGap(23)
+											.addComponent(mrk5, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)))
+									.addGap(10)
+									.addGroup(gl_Internals_1.createParallelGroup(Alignment.LEADING)
+										.addComponent(lblNewLabel_2_10_1_4_1_5, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
+										.addGroup(gl_Internals_1.createSequentialGroup()
+											.addGap(23)
+											.addComponent(mrk6, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)))
+									.addGap(22)
+									.addComponent(tglbtnNewToggleButton_3, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
+									.addGap(10)
+									.addGroup(gl_Internals_1.createParallelGroup(Alignment.BASELINE)
+										.addComponent(tglbtnNewToggleButton_3_1, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
+										.addComponent(tglbtnNewToggleButton_2_1, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))))
+							.addGap(14))
+						.addGroup(gl_Internals_1.createSequentialGroup()
+							.addComponent(ResultPreview_Panel, GroupLayout.PREFERRED_SIZE, 276, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.RELATED)))
+					.addComponent(btnNewButton_4, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap())
 		);
 		ResultPreview_Panel.setLayout(null);
 		
-		JLabel sc1 = new JLabel("Subject Code");
+	    JLabel sc1 = new JLabel("sim");
 		sc1.setHorizontalAlignment(SwingConstants.CENTER);
 		sc1.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		sc1.setBounds(38, 46, 119, 25);
 		ResultPreview_Panel.add(sc1);
+	
 		
 		JLabel mr1 = new JLabel("Mark");
 		mr1.setHorizontalAlignment(SwingConstants.CENTER);
@@ -2265,9 +2702,17 @@ public void switchMainPanels(JPanel panel2) {
 		JButton btnNewButton_3_3 = new JButton("Get Details");
 		btnNewButton_3_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String url = "jdbc:mysql://localhost:3306/result_ms";
-				String userName = "root";
-				String passWord = "SIM@ss55simeon";
+
+				
+				
+				
+
+
+				String url = "jdbc:mysql://db4free.net:3306/result_ms";
+				String userName = "rootuseronline";
+				String passWord = "rootuser123";
+				
+
 				// query 
 				String query="select *from rms where regno='"+r2_reg.getText()+"'";
 				Connection con;
@@ -2351,6 +2796,19 @@ public void switchMainPanels(JPanel panel2) {
 		lblNewLabel_2_10_1_4_8.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		
 		r2_subc1 = new JTextField();
+		r2_subc1.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				
+
+				 if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					  r2_mrk1.requestFocus();
+					  
+				  }
+			}
+			
+			
+		});
 		r2_subc1.setHorizontalAlignment(SwingConstants.CENTER);
 		r2_subc1.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));
 		r2_subc1.setColumns(10);
@@ -2362,6 +2820,17 @@ public void switchMainPanels(JPanel panel2) {
 		lblNewLabel_2_10_1_4_2_1.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		
 		r2_subc2 = new JTextField();
+		r2_subc2.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				
+
+				 if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					  r2_mrk2.requestFocus();
+					  
+				  }
+			}
+		});
 		r2_subc2.setHorizontalAlignment(SwingConstants.CENTER);
 		r2_subc2.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));
 		r2_subc2.setColumns(10);
@@ -2373,6 +2842,19 @@ public void switchMainPanels(JPanel panel2) {
 		lblNewLabel_2_10_1_4_3_1.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		
 		r2_subc3 = new JTextField();
+		r2_subc3.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				
+
+				 if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					  r2_mrk3.requestFocus();
+					  
+				  }
+			}
+			
+			
+		});
 		r2_subc3.setHorizontalAlignment(SwingConstants.CENTER);
 		r2_subc3.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));
 		r2_subc3.setColumns(10);
@@ -2384,6 +2866,18 @@ public void switchMainPanels(JPanel panel2) {
 		lblNewLabel_2_10_1_4_1_6.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		
 		r2_mrk1 = new JTextField();
+		r2_mrk1.setText("  ");
+		r2_mrk1.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				
+
+				 if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					  r2_subc2.requestFocus();
+					  
+				  }
+			}
+		});
 		r2_mrk1.setHorizontalAlignment(SwingConstants.CENTER);
 		r2_mrk1.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));
 		r2_mrk1.setColumns(10);
@@ -2395,6 +2889,16 @@ public void switchMainPanels(JPanel panel2) {
 		lblNewLabel_2_10_1_4_1_1_1.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		
 		r2_mrk2 = new JTextField();
+		r2_mrk2.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+
+				 if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					  r2_subc3.requestFocus();
+					  
+				  }
+			}
+		});
 		r2_mrk2.setHorizontalAlignment(SwingConstants.CENTER);
 		r2_mrk2.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));
 		r2_mrk2.setColumns(10);
@@ -2406,6 +2910,17 @@ public void switchMainPanels(JPanel panel2) {
 		lblNewLabel_2_10_1_4_1_2_1.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		
 		r2_mrk3 = new JTextField();
+		r2_mrk3.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				
+
+				 if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					  r2_subc4.requestFocus();
+					  
+				  }
+			}
+		});
 		r2_mrk3.setHorizontalAlignment(SwingConstants.CENTER);
 		r2_mrk3.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));
 		r2_mrk3.setColumns(10);
@@ -2417,6 +2932,18 @@ public void switchMainPanels(JPanel panel2) {
 		lblNewLabel_2_10_1_4_4_2.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		
 		r2_subc4 = new JTextField();
+		r2_subc4.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				
+
+				 if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					  r2_mrk4.requestFocus();
+					  
+				  }
+			}
+			
+		});
 		r2_subc4.setHorizontalAlignment(SwingConstants.CENTER);
 		r2_subc4.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));
 		r2_subc4.setColumns(10);
@@ -2428,6 +2955,18 @@ public void switchMainPanels(JPanel panel2) {
 		lblNewLabel_2_10_1_4_5_1.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		
 		r2_subc5 = new JTextField();
+		r2_subc5.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				
+				
+
+				 if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					  r2_mrk5.requestFocus();
+					  
+				  }
+			}
+		});
 		r2_subc5.setHorizontalAlignment(SwingConstants.CENTER);
 		r2_subc5.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));
 		r2_subc5.setColumns(10);
@@ -2436,6 +2975,17 @@ public void switchMainPanels(JPanel panel2) {
 		r2_subc5.getText();
 		
 		r2_subc6 = new JTextField();
+		r2_subc6.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				
+
+				 if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					  r2_mrk6.requestFocus();
+					  
+				  }
+			}
+		});
 		r2_subc6.setHorizontalAlignment(SwingConstants.CENTER);
 		r2_subc6.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));
 		r2_subc6.setColumns(10);
@@ -2450,6 +3000,17 @@ public void switchMainPanels(JPanel panel2) {
 		lblNewLabel_2_10_1_4_1_3_1.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		
 		r2_mrk4 = new JTextField();
+		r2_mrk4.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				
+
+				 if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					  r2_subc5.requestFocus();
+					  
+				  }
+			}
+		});
 		r2_mrk4.setHorizontalAlignment(SwingConstants.CENTER);
 		r2_mrk4.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));
 		r2_mrk4.setColumns(10);
@@ -2461,6 +3022,17 @@ public void switchMainPanels(JPanel panel2) {
 		lblNewLabel_2_10_1_4_1_4_1.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		
 		r2_mrk5 = new JTextField();
+		r2_mrk5.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				
+
+				 if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					  r2_subc6.requestFocus();
+					  
+				  }
+			}
+		});
 		r2_mrk5.setHorizontalAlignment(SwingConstants.CENTER);
 		r2_mrk5.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));
 		r2_mrk5.setColumns(10);
@@ -2551,36 +3123,104 @@ public void switchMainPanels(JPanel panel2) {
 		ResultPreview_Panel_1.add(lblNewLabel_2_10_1_4_4_1_6_1);
 		
 		JButton btnNewButton_4_1 = new JButton("UPLOAD RESULT");
+		btnNewButton_4_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+				// database connection internal 2
+
+				String url = "jdbc:mysql://db4free.net:3306/result_ms";
+				String userName = "rootuseronline";
+				String passWord = "rootuser123";
+				
+				
+				
+		
+				
+				String query ="insert into internaltwo value(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+				try {
+					Connection con = DriverManager.getConnection(url,userName,passWord);
+					
+					String s1= r2_subc1.getText();
+					String m1 = r2_mrk1.getText();
+					String s2 = r2_subc2.getText();
+					String m2 = r2_mrk2.getText();
+					
+					String s3 = r2_subc3.getText();
+					String m3 = r2_mrk3.getText();
+					String s4 = r2_subc4.getText();
+					String m4 = r2_mrk4.getText();
+					
+					String s5 = r2_subc5.getText();
+					String m5 = r2_mrk5.getText();
+					String s6 = r2_subc6.getText();
+					String m6 = r2_mrk6.getText();
+					
+					String in2regno = r2_reg.getText();
+					
+					PreparedStatement st = con.prepareStatement(query);
+					
+					st.setString(1, s1);
+					st.setString(2, m1);
+					
+					st.setString(3, s2);
+					st.setString(4, m2);
+					
+					st.setString(5, s3);
+					st.setString(6, m3);
+					
+					st.setString(7, s4);
+					st.setString(8, m4);
+					
+					st.setString(9, s5);
+					st.setString(10, m5);
+					
+					st.setString(11, s6);
+					st.setString(12,m6);
+					
+					st.setString(13, in2regno);
+					st.executeUpdate();				
+					
+					
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+				
+				
+			}
+		});
 		btnNewButton_4_1.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		btnNewButton_4_1.setBorder(new LineBorder(new Color(255, 128, 0)));
 		btnNewButton_4_1.setBackground(Color.WHITE);
 		
-		JToggleButton tglbtnNewToggleButton_3_1_1 = new JToggleButton("SEM 1");
+		JToggleButton tglbtnNewToggleButton_3_1_1 = new JToggleButton("SEM 7");
 		tglbtnNewToggleButton_3_1_1.setFont(new Font("Segoe UI Variable", Font.BOLD, 13));
 		tglbtnNewToggleButton_3_1_1.setBorder(new LineBorder(new Color(255, 128, 0)));
 		tglbtnNewToggleButton_3_1_1.setBackground(Color.WHITE);
 		
-		JToggleButton tglbtnNewToggleButton_3_2 = new JToggleButton("SEM 1");
+		JToggleButton tglbtnNewToggleButton_3_2 = new JToggleButton("SEM 4");
 		tglbtnNewToggleButton_3_2.setFont(new Font("Segoe UI Variable", Font.BOLD, 13));
 		tglbtnNewToggleButton_3_2.setBorder(new LineBorder(new Color(255, 128, 0)));
 		tglbtnNewToggleButton_3_2.setBackground(Color.WHITE);
 		
-		JToggleButton tglbtnNewToggleButton_2_2 = new JToggleButton("SEM 1");
+		JToggleButton tglbtnNewToggleButton_2_2 = new JToggleButton("SEM 3");
 		tglbtnNewToggleButton_2_2.setFont(new Font("Segoe UI Variable", Font.BOLD, 13));
 		tglbtnNewToggleButton_2_2.setBorder(new LineBorder(new Color(255, 128, 0)));
 		tglbtnNewToggleButton_2_2.setBackground(Color.WHITE);
 		
-		JToggleButton tglbtnNewToggleButton_2_1_1 = new JToggleButton("SEM 1");
+		JToggleButton tglbtnNewToggleButton_2_1_1 = new JToggleButton("SEM 7");
 		tglbtnNewToggleButton_2_1_1.setFont(new Font("Segoe UI Variable", Font.BOLD, 13));
 		tglbtnNewToggleButton_2_1_1.setBorder(new LineBorder(new Color(255, 128, 0)));
 		tglbtnNewToggleButton_2_1_1.setBackground(Color.WHITE);
 		
-		JToggleButton tglbtnNewToggleButton_1_1_1 = new JToggleButton("SEM 1");
+		JToggleButton tglbtnNewToggleButton_1_1_1 = new JToggleButton("SEM 6");
 		tglbtnNewToggleButton_1_1_1.setFont(new Font("Segoe UI Variable", Font.BOLD, 13));
 		tglbtnNewToggleButton_1_1_1.setBorder(new LineBorder(new Color(255, 128, 0)));
 		tglbtnNewToggleButton_1_1_1.setBackground(Color.WHITE);
 		
-		JToggleButton tglbtnNewToggleButton_1_2 = new JToggleButton("SEM 1");
+		JToggleButton tglbtnNewToggleButton_1_2 = new JToggleButton("SEM 2");
 		tglbtnNewToggleButton_1_2.setFont(new Font("Segoe UI Variable", Font.BOLD, 13));
 		tglbtnNewToggleButton_1_2.setBorder(new LineBorder(new Color(255, 128, 0)));
 		tglbtnNewToggleButton_1_2.setBackground(Color.WHITE);
@@ -2590,7 +3230,7 @@ public void switchMainPanels(JPanel panel2) {
 		tglbtnNewToggleButton_5.setBorder(new LineBorder(new Color(255, 128, 0)));
 		tglbtnNewToggleButton_5.setBackground(Color.WHITE);
 		
-		JToggleButton tglbtnNewToggleButton_4_1 = new JToggleButton("SEM 1");
+		JToggleButton tglbtnNewToggleButton_4_1 = new JToggleButton("SEM 5");
 		tglbtnNewToggleButton_4_1.setFont(new Font("Segoe UI Variable", Font.BOLD, 13));
 		tglbtnNewToggleButton_4_1.setBorder(new LineBorder(new Color(255, 128, 0)));
 		tglbtnNewToggleButton_4_1.setBackground(Color.WHITE);
@@ -2856,9 +3496,18 @@ public void switchMainPanels(JPanel panel2) {
 		btnNewButton_3_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				String url = "jdbc:mysql://localhost:3306/result_ms";
-				String userName = "root";
-				String passWord = "SIM@ss55simeon";
+
+			
+
+				
+				
+				
+
+				String url = "jdbc:mysql://db4free.net:3306/result_ms";
+				String userName = "rootuseronline";
+				String passWord = "rootuser123";
+				
+
 				
 				// query 
 				String query="select *from rms where regno='"+r3_reg.getText()+"'";
@@ -2942,6 +3591,17 @@ public void switchMainPanels(JPanel panel2) {
 		lblNewLabel_2_10_1_4_9.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		
 		r3_subc1 = new JTextField();
+		r3_subc1.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				
+
+				 if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					  r3_mrk1.requestFocus();
+					  
+				  }
+			}
+		});
 		r3_subc1.setHorizontalAlignment(SwingConstants.CENTER);
 		r3_subc1.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));
 		r3_subc1.setColumns(10);
@@ -2953,6 +3613,15 @@ public void switchMainPanels(JPanel panel2) {
 		lblNewLabel_2_10_1_4_2_2.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		
 		r3_subc2 = new JTextField();
+		r3_subc2.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					  r3_mrk2.requestFocus();
+					  
+				  }
+			}
+		});
 		r3_subc2.setHorizontalAlignment(SwingConstants.CENTER);
 		r3_subc2.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));
 		r3_subc2.setColumns(10);
@@ -2964,6 +3633,15 @@ public void switchMainPanels(JPanel panel2) {
 		lblNewLabel_2_10_1_4_3_2.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		
 		r3_subc3 = new JTextField();
+		r3_subc3.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					  r3_mrk3.requestFocus();
+					  
+				  }
+			}
+		});
 		r3_subc3.setHorizontalAlignment(SwingConstants.CENTER);
 		r3_subc3.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));
 		r3_subc3.setColumns(10);
@@ -2975,6 +3653,16 @@ public void switchMainPanels(JPanel panel2) {
 		lblNewLabel_2_10_1_4_1_7.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		
 		r3_mrk1 = new JTextField();
+		r3_mrk1.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				
+				if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					  r3_subc2.requestFocus();
+					  
+				  }
+			}
+		});
 		r3_mrk1.setHorizontalAlignment(SwingConstants.CENTER);
 		r3_mrk1.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));
 		r3_mrk1.setColumns(10);
@@ -2986,6 +3674,15 @@ public void switchMainPanels(JPanel panel2) {
 		lblNewLabel_2_10_1_4_1_1_2.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		
 		r3_mrk2 = new JTextField();
+		r3_mrk2.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					  r3_subc3.requestFocus();
+					  
+				  }
+			}
+		});
 		r3_mrk2.setHorizontalAlignment(SwingConstants.CENTER);
 		r3_mrk2.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));
 		r3_mrk2.setColumns(10);
@@ -2997,6 +3694,15 @@ public void switchMainPanels(JPanel panel2) {
 		lblNewLabel_2_10_1_4_1_2_2.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		
 		r3_mrk3 = new JTextField();
+		r3_mrk3.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					  r3_subc4.requestFocus();
+					  
+				  }
+			}
+		});
 		r3_mrk3.setHorizontalAlignment(SwingConstants.CENTER);
 		r3_mrk3.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));
 		r3_mrk3.setColumns(10);
@@ -3008,6 +3714,18 @@ public void switchMainPanels(JPanel panel2) {
 		lblNewLabel_2_10_1_4_4_3.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		
 		r3_subc4 = new JTextField();
+		r3_subc4.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				
+				if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					  r3_mrk4.requestFocus();
+					  
+				  }
+			}
+			
+			
+		});
 		r3_subc4.setHorizontalAlignment(SwingConstants.CENTER);
 		r3_subc4.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));
 		r3_subc4.setColumns(10);
@@ -3019,6 +3737,15 @@ public void switchMainPanels(JPanel panel2) {
 		lblNewLabel_2_10_1_4_5_2.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		
 		r3_subc5 = new JTextField();
+		r3_subc5.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					  r3_mrk5.requestFocus();
+					  
+				  }
+			}
+		});
 		r3_subc5.setHorizontalAlignment(SwingConstants.CENTER);
 		r3_subc5.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));
 		r3_subc5.setColumns(10);
@@ -3027,6 +3754,16 @@ public void switchMainPanels(JPanel panel2) {
 		r3_subc5.getText();
 		
 		r3_subc6 = new JTextField();
+		r3_subc6.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				
+				if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					  r3_mrk6.requestFocus();
+					  
+				  }
+			}
+		});
 		r3_subc6.setHorizontalAlignment(SwingConstants.CENTER);
 		r3_subc6.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));
 		r3_subc6.setColumns(10);
@@ -3041,6 +3778,15 @@ public void switchMainPanels(JPanel panel2) {
 		lblNewLabel_2_10_1_4_1_3_2.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		
 		r3_mrk4 = new JTextField();
+		r3_mrk4.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					  r3_subc5.requestFocus();
+					  
+				  }
+			}
+		});
 		r3_mrk4.setHorizontalAlignment(SwingConstants.CENTER);
 		r3_mrk4.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));
 		r3_mrk4.setColumns(10);
@@ -3052,6 +3798,16 @@ public void switchMainPanels(JPanel panel2) {
 		lblNewLabel_2_10_1_4_1_4_2.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		
 		r3_mrk5 = new JTextField();
+		r3_mrk5.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				
+				if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					  r3_subc6.requestFocus();
+					  
+				  }
+			}
+		});
 		r3_mrk5.setHorizontalAlignment(SwingConstants.CENTER);
 		r3_mrk5.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));
 		r3_mrk5.setColumns(10);
@@ -3142,36 +3898,104 @@ public void switchMainPanels(JPanel panel2) {
 		ResultPreview_Panel_2.add(lblNewLabel_2_10_1_4_4_1_6_2);
 		
 		JButton btnNewButton_4_2 = new JButton("UPLOAD RESULT");
+		btnNewButton_4_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+				
+				// database connection internal 2
+
+				String url = "jdbc:mysql://db4free.net:3306/result_ms";
+				String userName = "rootuseronline";
+				String passWord = "rootuser123";
+				
+		       String query ="inter into internalthree value (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		       
+		       try {
+				Connection con = DriverManager.getConnection(url,userName,passWord);
+				
+				
+				String sbcd1 = r3_subc1.getText();
+				String mr1 = r3_mrk1.getText();
+			    String sbcd2 = r3_subc2.getText();
+			    String mr2 = r3_mrk2.getText();
+				
+			    String sbcd3 = r3_subc3.getText();
+				String mr3 = r3_mrk3.getText();
+			    String sbcd4 = r3_subc4.getText();
+			    String mr4 = r3_mrk4.getText();
+				
+			    String sbcd5 = r3_subc5.getText();
+				String mr5 = r3_mrk5.getText();
+			    String sbcd6 = r3_subc6.getText();
+			    String mr6 = r3_mrk6.getText();
+				
+			    String regno = r3_reg.getText();
+	
+			    PreparedStatement st = con.prepareStatement(query);
+			    
+			    st.setString(1,sbcd1);
+			    st.setString(2, mr1);
+			    st.setString(3,sbcd2);
+			    st.setString(4, mr2);
+			    
+			    
+			    st.setString(5,sbcd3);
+			    st.setString(6, mr3);
+			    st.setString(7,sbcd4);
+			    st.setString(8, mr4);
+			    
+			    st.setString(9,sbcd5);
+			    st.setString(10, mr5);
+			    st.setString(11,sbcd6);
+			    st.setString(12, mr6);
+			    st.setString(13, regno);
+			    
+			   st.executeUpdate();
+				
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+				
+				
+				
+				
+				
+				
+				
+			}
+		});
 		btnNewButton_4_2.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		btnNewButton_4_2.setBorder(new LineBorder(new Color(255, 128, 0)));
 		btnNewButton_4_2.setBackground(Color.WHITE);
 		
-		JToggleButton tglbtnNewToggleButton_3_1_2 = new JToggleButton("SEM 1");
+		JToggleButton tglbtnNewToggleButton_3_1_2 = new JToggleButton("SEM 8");
 		tglbtnNewToggleButton_3_1_2.setFont(new Font("Segoe UI Variable", Font.BOLD, 13));
 		tglbtnNewToggleButton_3_1_2.setBorder(new LineBorder(new Color(255, 128, 0)));
 		tglbtnNewToggleButton_3_1_2.setBackground(Color.WHITE);
 		
-		JToggleButton tglbtnNewToggleButton_3_3 = new JToggleButton("SEM 1");
+		JToggleButton tglbtnNewToggleButton_3_3 = new JToggleButton("SEM 4");
 		tglbtnNewToggleButton_3_3.setFont(new Font("Segoe UI Variable", Font.BOLD, 13));
 		tglbtnNewToggleButton_3_3.setBorder(new LineBorder(new Color(255, 128, 0)));
 		tglbtnNewToggleButton_3_3.setBackground(Color.WHITE);
 		
-		JToggleButton tglbtnNewToggleButton_2_3 = new JToggleButton("SEM 1");
+		JToggleButton tglbtnNewToggleButton_2_3 = new JToggleButton("SEM 3");
 		tglbtnNewToggleButton_2_3.setFont(new Font("Segoe UI Variable", Font.BOLD, 13));
 		tglbtnNewToggleButton_2_3.setBorder(new LineBorder(new Color(255, 128, 0)));
 		tglbtnNewToggleButton_2_3.setBackground(Color.WHITE);
 		
-		JToggleButton tglbtnNewToggleButton_2_1_2 = new JToggleButton("SEM 1");
+		JToggleButton tglbtnNewToggleButton_2_1_2 = new JToggleButton("SEM 7");
 		tglbtnNewToggleButton_2_1_2.setFont(new Font("Segoe UI Variable", Font.BOLD, 13));
 		tglbtnNewToggleButton_2_1_2.setBorder(new LineBorder(new Color(255, 128, 0)));
 		tglbtnNewToggleButton_2_1_2.setBackground(Color.WHITE);
 		
-		JToggleButton tglbtnNewToggleButton_1_1_2 = new JToggleButton("SEM 1");
+		JToggleButton tglbtnNewToggleButton_1_1_2 = new JToggleButton("SEM 6");
 		tglbtnNewToggleButton_1_1_2.setFont(new Font("Segoe UI Variable", Font.BOLD, 13));
 		tglbtnNewToggleButton_1_1_2.setBorder(new LineBorder(new Color(255, 128, 0)));
 		tglbtnNewToggleButton_1_1_2.setBackground(Color.WHITE);
 		
-		JToggleButton tglbtnNewToggleButton_1_3 = new JToggleButton("SEM 1");
+		JToggleButton tglbtnNewToggleButton_1_3 = new JToggleButton("SEM 2");
 		tglbtnNewToggleButton_1_3.setFont(new Font("Segoe UI Variable", Font.BOLD, 13));
 		tglbtnNewToggleButton_1_3.setBorder(new LineBorder(new Color(255, 128, 0)));
 		tglbtnNewToggleButton_1_3.setBackground(Color.WHITE);
@@ -3181,7 +4005,7 @@ public void switchMainPanels(JPanel panel2) {
 		tglbtnNewToggleButton_6.setBorder(new LineBorder(new Color(255, 128, 0)));
 		tglbtnNewToggleButton_6.setBackground(Color.WHITE);
 		
-		JToggleButton tglbtnNewToggleButton_4_2 = new JToggleButton("SEM 1");
+		JToggleButton tglbtnNewToggleButton_4_2 = new JToggleButton("SEM 5");
 		tglbtnNewToggleButton_4_2.setFont(new Font("Segoe UI Variable", Font.BOLD, 13));
 		tglbtnNewToggleButton_4_2.setBorder(new LineBorder(new Color(255, 128, 0)));
 		tglbtnNewToggleButton_4_2.setBackground(Color.WHITE);
@@ -3446,6 +4270,9 @@ public void switchMainPanels(JPanel panel2) {
 					.addComponent(Sub_Internal_panel, GroupLayout.PREFERRED_SIZE, 602, GroupLayout.PREFERRED_SIZE)
 					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
+		
+		JPanel getReport = new JPanel();
+		Sub_Internal_panel.add(getReport, "name_925244573043400");
 		Internal_Result.setLayout(gl_Internal_Result);
 		
 		JPanel Semester_Result = new JPanel();
@@ -3508,11 +4335,17 @@ public void switchMainPanels(JPanel panel2) {
 		mntmNewMenuItem_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				switchMainPanels(Internal_Result);
+	
 			}
 		});
 		mnNewMenu_1.add(mntmNewMenuItem_1);
 		
 		JMenuItem mntmNewMenuItem_4 = new JMenuItem("Get Reports");
+		mntmNewMenuItem_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			switchInternalResultPanels(getReport);
+			}
+		});
 		mntmNewMenuItem_4.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));
 		mnNewMenu_1.add(mntmNewMenuItem_4);
 		
