@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 
 
 import javax.swing.JFrame;
+import javax.naming.CommunicationException;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JMenuBar;
@@ -209,8 +210,10 @@ public void switchMainPanels(JPanel panel2) {
 	private void initialize() {
 		frame = new JFrame();
 		//frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+		
 		frame.setBounds(100, 100, 1200, 700);
 		frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
+		frame.setLocationRelativeTo(null);
 		
 		JPanel Header_panel = new JPanel();
 		Header_panel.setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -234,16 +237,11 @@ public void switchMainPanels(JPanel panel2) {
 			public void actionPerformed(ActionEvent e) {
 				switchPanels(All_StudentsPanel);
 			 
-				
 				btn_AddStudents.setBackground(new Color(255,255,255));
 				btnUpdateStudent.setBackground(new Color(255,255,255));
 				btn_AllStudents.setBackground(new Color(255,128,0));
 				btnDeleteStudent.setBackground(new Color(255,255,255));
-				/*  String url = "jdbc:mysql://localhost:3306/result_ms";
-				   String username = "root";
-				   String password = "SIM@ss55simeon"; */
 				
-
 				String url = "jdbc:mysql://db4free.net:3306/result_ms";
 				String userName = "rootuseronline";
 				String passWord = "rootuser123";
@@ -252,9 +250,7 @@ public void switchMainPanels(JPanel panel2) {
 				 String query = "select *from rms";
 		    	 Connection con = DriverManager.getConnection(url,userName,passWord);
 		    	
-		    	  
-				
-				 DefaultTableModel model = (DefaultTableModel) table.getModel();
+		    	 DefaultTableModel model = (DefaultTableModel) table.getModel();
 				 model.setRowCount(0);
 		         String name , regno , dept , branch , course , year;
 		     	 Statement st = con.createStatement();
@@ -282,16 +278,21 @@ public void switchMainPanels(JPanel panel2) {
 		btnNewButton_3_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
+				int option = JOptionPane.showConfirmDialog(frame, "Are you sure you want to logout !! ", "Warning Message", JOptionPane.YES_NO_OPTION);
+				
+				if (option == JOptionPane.OK_OPTION) {
 				LoginScreen_Result login = new LoginScreen_Result();
 				login.frame.setVisible(true);
 				frame.dispose();
+				}
+				
 				
 			}
 		});
 		btnNewButton_3_1.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));
 		btnNewButton_3_1.setBackground(new Color(255, 128, 0));
 		
-		JButton btnNewButton_3_2 = new JButton("Manage Account");
+		JButton btnNewButton_3_2 = new JButton("Manage Students");
 		btnNewButton_3_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				switchPanels(ManageAccount_panel);
@@ -400,6 +401,10 @@ public void switchMainPanels(JPanel panel2) {
 				"NAME", "REGISTER NO", "DEPARTMENT", "BRANCH", "COURSE", "YEAR"
 			}
 		) {
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
 			boolean[] columnEditables = new boolean[] {
 				false, false, false, false, false, false
 			};
@@ -421,11 +426,11 @@ public void switchMainPanels(JPanel panel2) {
 		GroupLayout gl_All_StudentsPanel = new GroupLayout(All_StudentsPanel);
 		gl_All_StudentsPanel.setHorizontalGroup(
 			gl_All_StudentsPanel.createParallelGroup(Alignment.LEADING)
-				.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 947, Short.MAX_VALUE)
 				.addGroup(gl_All_StudentsPanel.createSequentialGroup()
 					.addGap(8)
-					.addComponent(lblNewLabel_1, GroupLayout.DEFAULT_SIZE, 931, Short.MAX_VALUE)
+					.addComponent(lblNewLabel_1, GroupLayout.DEFAULT_SIZE, 939, Short.MAX_VALUE)
 					.addGap(8))
+				.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 955, Short.MAX_VALUE)
 		);
 		gl_All_StudentsPanel.setVerticalGroup(
 			gl_All_StudentsPanel.createParallelGroup(Alignment.LEADING)
@@ -433,7 +438,7 @@ public void switchMainPanels(JPanel panel2) {
 					.addContainerGap()
 					.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 539, Short.MAX_VALUE))
+					.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 549, Short.MAX_VALUE))
 		);
 		All_StudentsPanel.setLayout(gl_All_StudentsPanel);
 		
@@ -441,7 +446,7 @@ public void switchMainPanels(JPanel panel2) {
 		Add_StudentsPanel.setBackground(new Color(240, 240, 240));
 		Sub_Home.add(Add_StudentsPanel, "name_20802092910600");
 		
-		JLabel lblNewLabel_2 = new JLabel("Student Name ");
+		JLabel lblNewLabel_2 = new JLabel("Student Name *");
 		lblNewLabel_2.setBounds(53, 72, 108, 25);
 		lblNewLabel_2.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		
@@ -454,7 +459,7 @@ public void switchMainPanels(JPanel panel2) {
 		stu_name.setColumns(10);
 	
 		
-		JLabel lblNewLabel_2_1 = new JLabel("Branch");
+		JLabel lblNewLabel_2_1 = new JLabel("Branch *");
 		lblNewLabel_2_1.setBounds(53, 130, 108, 25);
 		lblNewLabel_2_1.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		
@@ -467,8 +472,8 @@ public void switchMainPanels(JPanel panel2) {
 		branch.setBackground(new Color(250, 235, 215));
 		
 		
-		JLabel lblNewLabel_2_2 = new JLabel("Register Number");
-		lblNewLabel_2_2.setBounds(358, 72, 117, 25);
+		JLabel lblNewLabel_2_2 = new JLabel("Register Number *");
+		lblNewLabel_2_2.setBounds(358, 72, 127, 25);
 		lblNewLabel_2_2.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		
 		regno = new JTextField();
@@ -480,7 +485,7 @@ public void switchMainPanels(JPanel panel2) {
 		regno.setBackground(new Color(250, 235, 215));
 	
 		
-		JLabel lblNewLabel_2_3 = new JLabel("Course");
+		JLabel lblNewLabel_2_3 = new JLabel("Course *");
 		lblNewLabel_2_3.setBounds(358, 130, 108, 25);
 		lblNewLabel_2_3.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		
@@ -493,7 +498,7 @@ public void switchMainPanels(JPanel panel2) {
 		course.setBackground(new Color(250, 235, 215));
 	
 		
-		JLabel lblNewLabel_2_4 = new JLabel("Department");
+		JLabel lblNewLabel_2_4 = new JLabel("Department *");
 		lblNewLabel_2_4.setBounds(658, 72, 108, 25);
 		lblNewLabel_2_4.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		
@@ -506,7 +511,7 @@ public void switchMainPanels(JPanel panel2) {
 		depart.setBackground(new Color(250, 235, 215));
 		
 		
-		JLabel lblNewLabel_2_5 = new JLabel("Year");
+		JLabel lblNewLabel_2_5 = new JLabel("Year *");
 		lblNewLabel_2_5.setBounds(658, 130, 108, 25);
 		lblNewLabel_2_5.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		
@@ -580,7 +585,7 @@ public void switchMainPanels(JPanel panel2) {
 		relg.setBackground(new Color(250, 235, 215));
 
 		
-		JLabel lblNewLabel_2_4_1 = new JLabel("Date Of Birth");
+		JLabel lblNewLabel_2_4_1 = new JLabel("Date Of Birth *");
 		lblNewLabel_2_4_1.setBounds(658, 250, 108, 25);
 		lblNewLabel_2_4_1.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		
@@ -693,7 +698,38 @@ public void switchMainPanels(JPanel panel2) {
 		addstu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-			
+			//	option o = new option ();
+			//	o.frame.setVisible(true);
+				
+				
+				
+
+				 String nm = stu_name.getText();
+				 String rgnm = regno.getText();
+				 String dptr = depart.getText();
+				 String brnch = branch.getText();
+				 String cour = course.getText();
+				 String yr = year.getText();
+				 String phone = mobnum.getText();
+				 String fnam = fathernm.getText();
+				 String mnam = mothernm.getText();
+				 String fmb = fathermob.getText();
+				 String mmb = mothermob.getText();
+				 String faoccp = foccp.getText();
+				 String mooccp= moccp.getText();
+			     String gn  = gender.getText();
+			     String dateob  = dob.getText();
+			     String cty  = city.getText();
+			     String relig = relg.getText();
+				 String stat  = state.getText();
+				 
+				 
+				 if(nm.equals("") || regno.getText().equals("") || dptr.equals("") || brnch.equals("") || cour.equals("") || yr.equals("") || dateob.equals("")) {
+					 JOptionPane.showMessageDialog(frame, "Marked field should not be empty !!");
+					
+					 
+				 }else {
+				
 				//database connection add student
 
 				String url = "jdbc:mysql://db4free.net:3306/result_ms";
@@ -706,32 +742,14 @@ public void switchMainPanels(JPanel panel2) {
 					
 					
 
-					 String nm = stu_name.getText();
-					 String rgnm = regno.getText();
-					 String dptr = depart.getText();
-					String brnch = branch.getText();
-					 String cour = course.getText();
-					 String yr = year.getText();
-					 String phone = mobnum.getText();
-					 String fnam = fathernm.getText();
-					 String mnam = mothernm.getText();
-					 String fmb = fathermob.getText();
-					String mmb = mothermob.getText();
-					 String faoccp = foccp.getText();
-					 String mooccp= moccp.getText();
-				 String gn  = gender.getText();
-				 String dateob  = dob.getText();
-				 String cty  = city.getText();
-				 String relig = relg.getText();
-					 String stat  = state.getText();
-					
+				
 					
 					PreparedStatement st = con.prepareStatement(query);
 					st.setString(1,nm);
 					st.setString(2,rgnm);
-					st.setString(3,dptr);
-					st.setString(4,brnch);
-					st.setString(5,cour);
+					st.setString(3,dptr.toUpperCase());
+					st.setString(4,brnch.toUpperCase());
+					st.setString(5,cour.toUpperCase());
 					st.setString(6,yr);
 					st.setString(7,phone);
 					st.setString(8,fnam);
@@ -746,24 +764,48 @@ public void switchMainPanels(JPanel panel2) {
 					st.setString(17,relig);
 					st.setString(18,stat);
 					
-					 st.executeUpdate();
+					 int res = st.executeUpdate();
+					 if(res==1) {
+					//	 o.frame.dispose();
+						 JOptionPane.showMessageDialog(frame, "StudentRecord Added successfully ");
+					 }
 	
-					
-					
-					
-				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
+				} catch (SQLException e1) 
+				{
 					e1.printStackTrace();
-				}
+					
+			  }
 				
 			}
-		});
+			}});
 		addstu.setBounds(658, 552, 234, 40);
 		addstu.setBackground(new Color(255, 128, 0));
 		addstu.setBorder(new LineBorder(new Color(0, 0, 0)));
 		addstu.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));
 		
 		JButton clr = new JButton("CLEAR ALL");
+		clr.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				 stu_name.setText(null);
+				 regno.setText(null);
+				 depart.setText(null);
+			     branch.setText(null);
+				 course.setText(null);
+				 year.setText(null);
+				 mobnum.setText(null);
+				 fathernm.setText(null);
+				 mothernm.setText(null);
+				 fathermob.setText(null);
+				 mothermob.setText(null);
+				 foccp.setText(null);
+				 moccp.setText(null);
+			     gender.setText(null);
+			     dob.setText(null);
+			     city.setText(null);
+			     relg.setText(null);
+		         state.setText(null);
+			}
+		});
 		clr.setBounds(358, 552, 234, 40);
 		clr.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));
 		clr.setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -1175,20 +1217,10 @@ public void switchMainPanels(JPanel panel2) {
 		JButton btnNewButton_1 = new JButton("GET DETAILS");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			  public void actionPerformed(ActionEvent e) {
-				
-				// set the detils in to text fields by database
-				
-				// db connection
-				  
 				 try {
-			/*	String url ="jdbc:mysql://localhost:3306/result_ms";
-				String userName="root";
-				String password="SIM@ss55simeon";  */
-					 
-
-						String url = "jdbc:mysql://db4free.net:3306/result_ms";
-						String userName = "rootuseronline";
-						String passWord = "rootuser123";
+				     String url = "jdbc:mysql://db4free.net:3306/result_ms";
+					 String userName = "rootuseronline";
+					 String passWord = "rootuser123";
 						
 				
 				// query 
@@ -1197,35 +1229,6 @@ public void switchMainPanels(JPanel panel2) {
                 Statement st = con.createStatement();
                 ResultSet rs =st.executeQuery(query);
                 rs.next();
-              
-                
-                /*
-                rs.getString(1);
-                rs.getString(2);
-                rs.getString(3);
-                rs.getString(4);
-				
-                rs.getString(5);
-                rs.getString(6);
-				
-                rs.getString(7);
-                rs.getString(8);
-				
-                rs.getString(9);
-                rs.getString(10);
-				
-                rs.getString(11);
-                rs.getString(12);
-				
-                rs.getString(13);
-                rs.getString(14);
-				
-                rs.getString(15);
-                rs.getString(16);
-				
-                rs.getString(17);
-                rs.getString(18);
-                */
 				
                 upstu.setText(rs.getString(1));
                 upreg.setText(rs.getString(2));
@@ -1245,9 +1248,7 @@ public void switchMainPanels(JPanel panel2) {
                 upmothernm.setText(rs.getString(9));
                 upmotmob.setText(rs.getString(11));
                 upmoccp.setText(rs.getString(13));
-           
-				
-				 }catch(SQLException e3){
+                }catch(SQLException e3){
 					 e3.printStackTrace();				 }
 				
 				  
@@ -1278,10 +1279,7 @@ public void switchMainPanels(JPanel panel2) {
 	                upmothernm.setText("");
 	                upmotmob.setText("");
 	                upmoccp.setText("");
-				
-				
-				
-			}
+			  }
 		});
 		btnNewButton_1_1.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));
 		btnNewButton_1_1.setBorder(null);
@@ -1290,56 +1288,45 @@ public void switchMainPanels(JPanel panel2) {
 		JButton btnNewButton_1_2 = new JButton("UPDATE");
 		btnNewButton_1_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
 				//update connections
+				try
+				{	
 				
-			try {	
-				
-			
 				String url = "jdbc:mysql://db4free.net:3306/result_ms";
 				String userName = "rootuseronline";
 				String passWord = "rootuser123";
-				
 				String query = "update rms set name = ? , regno=? , department=?, branch =?,course =?, year=?, phone =?, father_name=?, mother_name=?, father_number =?, mother_number=?, father_occupation =?, mother_occupation =?, gender=?, dob=?, city=? , religion=? , state=? where regno= ? ;";                   
 				
-				
-			Connection con = DriverManager.getConnection(url,userName,passWord);
-			PreparedStatement pst = con.prepareStatement(query);
-			//pst.executeUpdate();
-			pst.setString(1, upstu.getText());
-			pst.setString(2, upreg.getText());
-			pst.setString(3, updptr.getText());
-			pst.setString(4, upbranch.getText());
-			pst.setString(5, upcourse.getText()); 
-			pst.setString(6, upyear.getText());
-			pst.setString(7, upmob.getText());
-			pst.setString(8, upfathernm.getText());
-			pst.setString(9, upmothernm.getText());
-			pst.setString(10, upfatmob.getText());
-			pst.setString(11, upmotmob.getText());
-			pst.setString(12, upfoccp.getText());
-			pst.setString(13, upmoccp.getText());
-			pst.setString(14, upgender.getText());
-			pst.setString(15, updob.getText());
-			pst.setString(16, upcity.getText());
-			pst.setString(17, upreligion.getText());
-			pst.setString(18, upstate.getText());
-			pst.setString(19, enreg.getText());
+				Connection con = DriverManager.getConnection(url,userName,passWord);
+			    PreparedStatement pst = con.prepareStatement(query);
 			
+			    pst.setString(1, upstu.getText());
+			    pst.setString(2, upreg.getText());
+			    pst.setString(3, updptr.getText());
+			    pst.setString(4, upbranch.getText());
+			    pst.setString(5, upcourse.getText()); 
+			    pst.setString(6, upyear.getText());
+			    pst.setString(7, upmob.getText());
+			    pst.setString(8, upfathernm.getText());
+			    pst.setString(9, upmothernm.getText());
+			    pst.setString(10, upfatmob.getText());
+			    pst.setString(11, upmotmob.getText());
+			    pst.setString(12, upfoccp.getText());
+			    pst.setString(13, upmoccp.getText());
+			    pst.setString(14, upgender.getText());
+			    pst.setString(15, updob.getText());
+			    pst.setString(16, upcity.getText());
+			    pst.setString(17, upreligion.getText());
+			    pst.setString(18, upstate.getText());
+			    pst.setString(19, enreg.getText());
+			    pst.executeUpdate();
+			    }
 			
-			pst.executeUpdate();
-			
-		  //  pst.setString(2, upreg.getText());
-			
-		
-			}
-			
-			catch(SQLException ss){
-				if(ss.getMessage().equals("Illegal operation on empty result set.")) 
-				{
+			    catch(SQLException ss){
+				     if(ss.getMessage().equals("Illegal operation on empty result set.")) {
 					JOptionPane.showMessageDialog(frame, "REGISTER NUMBER FIELD CANNOT BE NULL !!");
-				}
-			}
+					}
+			     }
 			}
 			
 		});
@@ -1713,8 +1700,6 @@ public void switchMainPanels(JPanel panel2) {
 		JButton btnNewButton_3 = new JButton("Get Details");
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				
 				String url = "jdbc:mysql://localhost:3306/result_ms";
 				String userName = "root";
 				String passWord = "SIM@ss55simeon";
@@ -1724,21 +1709,15 @@ public void switchMainPanels(JPanel panel2) {
 				Connection con;
 				try {
 					con = DriverManager.getConnection(url,userName,passWord);
-					
-					
-					 Statement st = con.createStatement();
-		                ResultSet rs =st.executeQuery(query);
-		                rs.next();
-		                r_stunm.setText(rs.getString(1));
-		                r_degree.setText(rs.getString(5));
-		                r_branch.setText(rs.getString(4));
-		                r_year.setText(rs.getString(6));
-					
-					
-					
-					
-				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
+					Statement st = con.createStatement();
+		            ResultSet rs =st.executeQuery(query);
+		            rs.next();
+		            r_stunm.setText(rs.getString(1));
+		            r_degree.setText(rs.getString(5));
+		            r_branch.setText(rs.getString(4));
+		            r_year.setText(rs.getString(6));
+					} catch (SQLException e1) {
+				
 					e1.printStackTrace();
 				}
                
@@ -1750,7 +1729,6 @@ public void switchMainPanels(JPanel panel2) {
 		btnNewButton_3.setFont(new Font("Segoe UI Variable", Font.BOLD, 13));
 		
 		JSeparator separator_3_1 = new JSeparator();
-		
 		JLabel lblNewLabel_2_10_1_4 = new JLabel("Subject Code");
 		lblNewLabel_2_10_1_4.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		
@@ -2287,37 +2265,27 @@ public void switchMainPanels(JPanel panel2) {
 		JButton btnNewButton_3_3 = new JButton("Get Details");
 		btnNewButton_3_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				
-				
-
 				String url = "jdbc:mysql://localhost:3306/result_ms";
 				String userName = "root";
 				String passWord = "SIM@ss55simeon";
-				
 				// query 
 				String query="select *from rms where regno='"+r2_reg.getText()+"'";
 				Connection con;
-				try {
+				try 
+				{
 					con = DriverManager.getConnection(url,userName,passWord);
-					
-					
-					 Statement st = con.createStatement();
-		                ResultSet rs =st.executeQuery(query);
-		                rs.next();
-		                r2_stu.setText(rs.getString(1));
-		                r2_deg.setText(rs.getString(5));
-		                r2_branch.setText(rs.getString(4));
-		                r2_year.setText(rs.getString(6));
-					
-					
-					
-					
-				} catch (SQLException e1) {
+					Statement st = con.createStatement();
+		            ResultSet rs =st.executeQuery(query);
+		            rs.next();
+		            r2_stu.setText(rs.getString(1));
+		            r2_deg.setText(rs.getString(5));
+		            r2_branch.setText(rs.getString(4));
+		            r2_year.setText(rs.getString(6));
+				 } 
+				catch (SQLException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				
 				
 			}
 		});
@@ -2888,10 +2856,6 @@ public void switchMainPanels(JPanel panel2) {
 		btnNewButton_3_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				
-				
-				
-				
 				String url = "jdbc:mysql://localhost:3306/result_ms";
 				String userName = "root";
 				String passWord = "SIM@ss55simeon";
@@ -2899,40 +2863,22 @@ public void switchMainPanels(JPanel panel2) {
 				// query 
 				String query="select *from rms where regno='"+r3_reg.getText()+"'";
 				Connection con;
-				try {
-					con = DriverManager.getConnection(url,userName,passWord);
-					
-					
-					 Statement st = con.createStatement();
-		                ResultSet rs =st.executeQuery(query);
-		                rs.next();
-		                r3_stu.setText(rs.getString(1));
-		                r3_deg.setText(rs.getString(5));
-		                r3_branch.setText(rs.getString(4));
-		                r3_year.setText(rs.getString(6));
-					
-					
-					
-					
-				} catch (SQLException e1) {
+				try
+				{
+				con = DriverManager.getConnection(url,userName,passWord);
+				Statement st = con.createStatement();
+		        ResultSet rs =st.executeQuery(query);
+		        rs.next();
+		        r3_stu.setText(rs.getString(1));
+		        r3_deg.setText(rs.getString(5));
+		        r3_branch.setText(rs.getString(4));
+		        r3_year.setText(rs.getString(6));
+			    }
+			   catch (SQLException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-               
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-			}
+             }
 		});
 		btnNewButton_3_4.setFont(new Font("Segoe UI Variable", Font.BOLD, 13));
 		btnNewButton_3_4.setBorder(new LineBorder(new Color(255, 128, 0)));
@@ -3556,7 +3502,8 @@ public void switchMainPanels(JPanel panel2) {
 		mnNewMenu_1.setBackground(new Color(0, 0, 0));
 		menuBar.add(mnNewMenu_1);
 		
-		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Add Internal Results");
+		JMenuItem mntmNewMenuItem_1 = 
+				new JMenuItem("Add Internal Results");
 		mntmNewMenuItem_1.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));
 		mntmNewMenuItem_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

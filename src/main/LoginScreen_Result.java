@@ -4,20 +4,14 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import java.awt.Color;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.JTabbedPane;
 import javax.swing.JPanel;
 import java.awt.Font;
-import java.awt.ComponentOrientation;
-import javax.swing.JTable;
+
 import javax.swing.table.DefaultTableModel;
-import javax.swing.JScrollPane;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
-import javax.swing.border.LineBorder;
-import javax.swing.ScrollPaneConstants;
-import javax.swing.LayoutStyle.ComponentPlacement;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -31,7 +25,6 @@ import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 
 public class LoginScreen_Result {
@@ -41,10 +34,12 @@ public class LoginScreen_Result {
 	private JPasswordField Staff_password;
 	private JTextField textField_1;
 	private JPasswordField passwordField_1;
-	
-	//demo staff details for testing
-	String name = "Vengadesh";
-	String password = "12345";
+	String url = "jdbc:mysql://db4free.net:3306/result_ms";
+	String userName = "rootuseronline";
+	String passWord = "rootuser123";
+	Connection con ;
+	ResultSet rs;
+	Statement st;
 
 	/**
 	 * Launch the application.
@@ -157,23 +152,30 @@ public class LoginScreen_Result {
 		frame.getContentPane().add(lblNewLabel_3_1);
 		
 		JButton btnNewButton_1 = new JButton("LOG IN");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		btnNewButton_1.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
-				if(name.equals(Staff_uname.getText()) && password.equals(Staff_password.getText())) {
+				
+				// login database connection 
+				try {
+			
+				
+				String query = "select * from staff_details where staff_user_id = '"+Staff_uname.getText()+"'";
+				con = DriverManager.getConnection(url,userName,passWord);
+		        st = con.createStatement();
+		        rs = st.executeQuery(query);
+		        rs.next();
+
+			    if(rs.getString(2).equals(Staff_uname.getText()) && rs.getString(3).equals(Staff_password.getText())) {
 					HomeScreen_staff staff = new HomeScreen_staff();
 					staff.frame.setVisible(true);
 					
-					
-					 String url = "jdbc:mysql://localhost:3306/result_ms";
-					   String username = "root";
-					   String password = "SIM@ss55simeon";
-					 try {
-					 String query = "select * from rms";
-			    	 Connection con = DriverManager.getConnection(url,username,password);
-			         Statement st = con.createStatement();
-			         ResultSet rs = st.executeQuery(query);
+					 String query1 = "select * from rms";
+			    	 con = DriverManager.getConnection(url,userName,passWord);
+			    	 
+			         st = con.createStatement();
+			         rs = st.executeQuery(query1);
 			         
-					
+			     
 					 DefaultTableModel model = (DefaultTableModel) staff.table.getModel();
 			         String name , regno , dept , branch , course , year;
 			         
@@ -188,15 +190,28 @@ public class LoginScreen_Result {
 			        	 model.addRow(row);
 					
 					
-				}}catch(SQLException e1) {e1.printStackTrace();}
-					
-					frame.dispose();
-					
-				}else {
+				
+			    }}
+				else {
 					Staff_uname.setText("");
 					Staff_password.setText("");
-					
+					JOptionPane.showMessageDialog(frame , "User ID or password is wrong !! ");				
 				}
+			   
+				}catch(Exception e1)
+		        {
+		        	if(e1.getMessage().equals("Illegal operation on empty result set."));
+		        	{
+		        		JOptionPane.showMessageDialog(frame , " No User Credentital Found !!");	
+		        	}
+		        	
+		        	
+		        }
+				
+				
+				
+				
+	
 				
 				
 				
